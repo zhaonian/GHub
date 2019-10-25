@@ -4,15 +4,16 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("android.extensions")
+    kotlin("kapt")
     id("androidx.navigation.safeargs")
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(deps.build.compileSdk)
     defaultConfig {
         applicationId = "io.zluan.ghub"
-        minSdkVersion(21)
-        targetSdkVersion(29)
+        minSdkVersion(deps.build.minSdk)
+        targetSdkVersion(deps.build.targetSdk)
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -24,24 +25,40 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = deps.versions.java
+        targetCompatibility = deps.versions.java
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = deps.versions.java.toString()
     }
 }
 
 dependencies {
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
-    implementation("androidx.appcompat:appcompat:1.1.0")
-    implementation("androidx.core:core-ktx:1.1.0")
-    implementation("com.google.android.material:material:1.0.0")
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.1.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.1.0")
-    testImplementation ("junit:junit:4.12")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.1")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.2.0")
+    implementation(deps.android.core)
+    implementation(deps.kotlin.stdlib)
+    implementation(deps.kotlin.coroutines)
+
+    // App compat
+    implementation(deps.android.appcompat)
+    implementation(deps.android.lifecycle)
+
+    // Navigation library
+    implementation(deps.android.navigation.fragment)
+    implementation(deps.android.navigation.ui)
+
+    // UI
+    implementation(deps.android.ui.constraintlayout)
+    implementation(deps.android.ui.material)
+
+    // Unit testing
+    testImplementation(deps.android.test.junit)
+    testImplementation(deps.android.test.runner)
+    testImplementation(deps.android.test.core)
+    testImplementation(deps.test.robolectric)
+
+    // Instrumented testing
+    androidTestImplementation(deps.android.test.core)
+    androidTestImplementation(deps.android.test.junit)
+    androidTestImplementation(deps.android.test.runner)
+    androidTestImplementation(deps.android.test.core)
 }

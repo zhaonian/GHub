@@ -49,6 +49,10 @@ dependencies {
     implementation(deps.android.ui.constraintlayout)
     implementation(deps.android.ui.material)
 
+    // Retrofit
+    implementation(deps.network.retrofit)
+    implementation(deps.network.retrofitMoshiConverter)
+
     // Unit testing
     testImplementation(deps.android.test.junit)
     testImplementation(deps.android.test.runner)

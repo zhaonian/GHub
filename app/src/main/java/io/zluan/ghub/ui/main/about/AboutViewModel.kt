@@ -1,4 +1,4 @@
-package io.zluan.ghub.ui.about
+package io.zluan.ghub.ui.main.about
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

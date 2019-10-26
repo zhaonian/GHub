@@ -1,4 +1,4 @@
-package io.zluan.ghub.ui.home
+package io.zluan.ghub.ui.main.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

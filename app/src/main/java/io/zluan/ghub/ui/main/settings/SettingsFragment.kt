@@ -1,4 +1,4 @@
-package io.zluan.ghub.ui.about
+package io.zluan.ghub.ui.main.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,19 +10,19 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import io.zluan.ghub.R
 
-class AboutFragment : Fragment() {
+class SettingsFragment : Fragment() {
 
-    private lateinit var aboutViewModel: AboutViewModel
+    private lateinit var settingsViewModel: SettingsViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        aboutViewModel = ViewModelProvider(this).get(AboutViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
-        aboutViewModel.text.observe(viewLifecycleOwner, Observer {
+        settingsViewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_slideshow, container, false)
+        val textView: TextView = root.findViewById(R.id.text_slideshow)
+        settingsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

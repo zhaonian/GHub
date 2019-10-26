@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.config.KotlinCompilerVersion
-
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -41,6 +39,7 @@ dependencies {
     // App compat
     implementation(deps.android.appcompat)
     implementation(deps.android.lifecycle)
+    implementation(deps.android.lifecycleExtension)
 
     // Navigation library
     implementation(deps.android.navigation.fragment)

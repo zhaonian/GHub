@@ -30,6 +30,7 @@ object deps {
         const val core = "androidx.core:core-ktx:1.1.0"
         const val appcompat = "androidx.appcompat:appcompat:1.1.0"
         const val lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-alpha05"
+        const val lifecycleExtension = "androidx.lifecycle:lifecycle-extensions:2.2.0-alpha05"
 
         object test {
             const val core = "androidx.test:core:1.2.0"

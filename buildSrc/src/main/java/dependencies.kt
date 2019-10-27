@@ -69,4 +69,9 @@ object deps {
     object test {
         const val robolectric = "org.robolectric:robolectric:4.3"
     }
+
+    object log {
+        private const val timberVersion = "4.7.1"
+        const val timber = "com.jakewharton.timber:timber:$timberVersion"
+    }
 }

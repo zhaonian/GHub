@@ -60,6 +60,9 @@ dependencies {
     implementation(deps.network.retrofit)
     implementation(deps.network.retrofitMoshiConverter)
 
+    // Timber
+    implementation(deps.log.timber)
+
     // Unit testing
     testImplementation(deps.android.test.junit)
     testImplementation(deps.android.test.runner)

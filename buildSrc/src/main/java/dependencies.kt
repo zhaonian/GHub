@@ -50,6 +50,22 @@ object deps {
         }
     }
 
+    object di {
+        private const val daggerVersion = "2.22"
+        const val dagger =  "com.google.dagger:dagger:$daggerVersion"
+        const val daggerCompiler = "com.google.dagger:dagger-compiler:$daggerVersion"
+
+        const val daggerAndroid = "com.google.dagger:dagger-android:$daggerVersion"
+        const val daggerAndroidSupport = "com.google.dagger:dagger-android-support:$daggerVersion"
+        const val daggerAndroidProcessor = "com.google.dagger:dagger-android-processor:$daggerVersion"
+    }
+
+    object network {
+        private const val retrofitVersion = "2.6.2"
+        const val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+        const val retrofitMoshiConverter = "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    }
+
     object test {
         const val robolectric = "org.robolectric:robolectric:4.3"
     }

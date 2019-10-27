@@ -49,6 +49,17 @@ dependencies {
     implementation(deps.android.ui.constraintlayout)
     implementation(deps.android.ui.material)
 
+    // Dagger
+    implementation(deps.di.dagger)
+    kapt(deps.di.daggerCompiler)
+    implementation(deps.di.daggerAndroid)
+    implementation(deps.di.daggerAndroidSupport)
+    kapt(deps.di.daggerAndroidProcessor)
+
+    // Retrofit
+    implementation(deps.network.retrofit)
+    implementation(deps.network.retrofitMoshiConverter)
+
     // Unit testing
     testImplementation(deps.android.test.junit)
     testImplementation(deps.android.test.runner)

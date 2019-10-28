@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
+    rootProject.extra["ci"] = rootProject.hasProperty("ci")
     repositories {
         google()
         gradlePluginPortal()
@@ -11,7 +12,6 @@ buildscript {
         classpath(deps.plugin.safeArgs)
         classpath(deps.plugin.ktlint)
         classpath(deps.plugin.versions)
-
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

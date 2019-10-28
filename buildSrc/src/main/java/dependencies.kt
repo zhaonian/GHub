@@ -20,6 +20,7 @@ object deps {
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${deps.versions.kotlin}"
         const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:2.1.0"
         const val ktlint = "org.jlleitschuh.gradle:ktlint-gradle:8.2.0"
+        const val versions = "com.github.ben-manes:gradle-versions-plugin:0.25.0"
     }
 
     object kotlin {

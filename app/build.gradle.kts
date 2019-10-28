@@ -29,6 +29,29 @@ android {
     kotlinOptions {
         jvmTarget = deps.versions.java.toString()
     }
+    sourceSets {
+        val commonTest = "src/test/java"
+        getByName("androidTest").java.srcDirs(commonTest)
+        getByName("test").java.srcDirs(commonTest)
+    }
+    splits {
+        abi {
+            isEnable = true
+            reset()
+            if (rootProject.extra["ci"] as Boolean || gradle.startParameter.taskNames.any { it.contains("release") }) {
+                include("armeabi", "armeabi-v7a", "armeabi-v8a", "arm64-v8a", "mips", "mips64", "x86", "x86_64")
+            } else {
+                include("arm64-v8a", "x86_64")
+            }
+        }
+    }
+    testOptions {
+        animationsDisabled = true
+        unitTests.apply {
+            isReturnDefaultValues = true
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -62,6 +85,9 @@ dependencies {
 
     // Timber
     implementation(deps.log.timber)
+
+    // Leak Canary
+    debugImplementation(deps.codeAnalysis.leakCanary)
 
     // Unit testing
     testImplementation(deps.android.test.junit)

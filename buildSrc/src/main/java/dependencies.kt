@@ -19,6 +19,8 @@ object deps {
         const val gradle = "com.android.tools.build:gradle:${deps.versions.androidGradle}"
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${deps.versions.kotlin}"
         const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:2.1.0"
+        const val ktlint = "org.jlleitschuh.gradle:ktlint-gradle:8.2.0"
+        const val versions = "com.github.ben-manes:gradle-versions-plugin:0.25.0"
     }
 
     object kotlin {
@@ -64,6 +66,11 @@ object deps {
         private const val retrofitVersion = "2.6.2"
         const val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
         const val retrofitMoshiConverter = "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    }
+
+    object codeAnalysis {
+        private const val leakCanaryVersion = "2.0-beta-3"
+        const val leakCanary = "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     }
 
     object test {

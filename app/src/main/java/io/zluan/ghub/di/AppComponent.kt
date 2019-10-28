@@ -20,7 +20,7 @@ import javax.inject.Singleton
 interface AppComponent : AndroidInjector<BaseApplication> {
 
     @Component.Builder
-    interface Builder{
+    interface Builder {
         @BindsInstance
         fun application(application: Application): Builder
 

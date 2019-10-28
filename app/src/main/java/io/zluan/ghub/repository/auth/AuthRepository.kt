@@ -5,6 +5,5 @@ import javax.inject.Inject
 
 class AuthRepository @Inject constructor(val authService: AuthService) {
     fun loginRequest(email: String, password: String) {
-
     }
 }

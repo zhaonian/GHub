@@ -63,6 +63,9 @@ dependencies {
     // Timber
     implementation(deps.log.timber)
 
+    // Leak Canary
+    debugImplementation(deps.codeAnalysis.leakCanary)
+
     // Unit testing
     testImplementation(deps.android.test.junit)
     testImplementation(deps.android.test.runner)

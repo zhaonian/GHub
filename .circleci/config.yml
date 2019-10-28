@@ -26,7 +26,7 @@ jobs:
 
       - restore_cache:
           name: Restore Cache
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          key: jars-{{ checksum "build.gradle.kts" }}-{{ checksum  "app/build.gradle.kts" }}
 
       - run:
           name: Download Dependencies
@@ -36,7 +36,7 @@ jobs:
           name: Save Cache
           paths:
             - ~/.gradle
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          key: jars-{{ checksum "build.gradle.kts" }}-{{ checksum  "app/build.gradle.kts" }}
 
       - run:
           name: Run Lint

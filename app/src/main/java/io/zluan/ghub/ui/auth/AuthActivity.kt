@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import dagger.android.support.DaggerAppCompatActivity
 import io.zluan.ghub.R
 import io.zluan.ghub.viewmodel.ViewModelProviderFactory
+import timber.log.Timber
 import javax.inject.Inject
 
 class AuthActivity : DaggerAppCompatActivity() {
@@ -15,5 +16,7 @@ class AuthActivity : DaggerAppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         viewModel = ViewModelProvider(this, providerFactory).get(AuthViewModel::class.java)
+        Timber.plant(Timber.DebugTree())
+        viewModel.test()
     }
 }

@@ -6,6 +6,7 @@ import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import io.zluan.ghub.BaseApplication
+import io.zluan.ghub.di.coroutines.CoroutinesModule
 import javax.inject.Singleton
 
 @Singleton
@@ -13,6 +14,7 @@ import javax.inject.Singleton
     modules = [
         AndroidInjectionModule::class,
         AppModule::class,
+        CoroutinesModule::class,
         ActivityBuildersModule::class,
         ViewModelFactoryModule::class
     ]

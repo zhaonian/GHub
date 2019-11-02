@@ -21,5 +21,4 @@
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
 </resources>

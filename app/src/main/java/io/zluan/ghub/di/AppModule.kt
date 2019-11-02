@@ -10,8 +10,8 @@ import javax.inject.Singleton
 /** Application-wide dependencies. */
 @Module
 class AppModule {
-    @Singleton
     @Provides
+    @Singleton
     fun provideRetrofitBuilder(): Retrofit.Builder {
         return Retrofit.Builder()
             .baseUrl(Constants.GITHUB_BASE_URL)

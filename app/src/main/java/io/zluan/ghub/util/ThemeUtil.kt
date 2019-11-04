@@ -18,7 +18,7 @@ object ThemeUtil {
     const val DEFAULT_MODE = "default"
 
     /** Apply the selected theme. */
-    fun applyTheme(theme: String) {
+    fun applyTheme(theme: String?) {
         val mode = when (theme) {
             LIGHT_MODE -> AppCompatDelegate.MODE_NIGHT_NO
             DARK_MODE -> AppCompatDelegate.MODE_NIGHT_YES

@@ -4,16 +4,15 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.content.SharedPreferences.Editor
 import androidx.preference.PreferenceManager
-import timber.log.Timber
 
 /** Utils for easily setting and getting the SharedPreferences. */
 object PreferenceUtil {
 
-    private const val THEME_STATUS = "theme_status"
+    const val THEME_STATUS = "theme_status"
 
     /** Returns the current status of dark mode. */
-    fun getDarkModeStatus(context: Context?) =
-        getDefaultSharedPreference(context)?.getString(THEME_STATUS, null)
+    fun getThemeStatus(context: Context): String? =
+        getDefaultSharedPreference(context).getString(THEME_STATUS, null)
 
     /**
      * Sets a shared preference.
@@ -22,12 +21,9 @@ object PreferenceUtil {
      * @param key the key of the SharedPreference
      * @param value the value of the SharedPreference
      */
-    fun setSharedPreference(context: Context?, key: String, value: Any) {
+    fun setSharedPreference(context: Context, key: String, value: Any) {
         check(!key.isBlank()) { "Key cannot be blank" }
-        val edit: Editor = getDefaultSharedPreference(context)?.edit() ?: run {
-            Timber.wtf("Failed to get the SharedPreference. ")
-            return
-        }
+        val edit: Editor = getDefaultSharedPreference(context).edit()
         when (value) {
             is String -> edit.putString(key, value)
             is Int -> edit.putInt(key, value)
@@ -48,6 +44,6 @@ object PreferenceUtil {
     }
 
     /** Helper function to get the default SharedPreference. */
-    private fun getDefaultSharedPreference(context: Context?): SharedPreferences? =
+    private fun getDefaultSharedPreference(context: Context): SharedPreferences =
         PreferenceManager.getDefaultSharedPreferences(context)
 }

@@ -48,7 +48,11 @@ object deps {
 
         object ui {
             const val constraintlayout = "androidx.constraintlayout:constraintlayout:1.1.3"
-            const val material = "com.google.android.material:material:1.0.0"
+            const val material = "com.google.android.material:material:1.2.0-alpha01"
+        }
+
+        object preference {
+            const val preference = "androidx.preference:preference-ktx:1.1.0"
         }
     }
 

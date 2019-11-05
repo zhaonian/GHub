@@ -68,6 +68,9 @@ dependencies {
     implementation(deps.android.navigation.fragment)
     implementation(deps.android.navigation.ui)
 
+    // Preferences
+    implementation(deps.android.preference.preference)
+
     // UI
     implementation(deps.android.ui.constraintlayout)
     implementation(deps.android.ui.material)

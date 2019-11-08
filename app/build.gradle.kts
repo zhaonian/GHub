@@ -17,6 +17,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        // Secrets.kt is hidden in buildSrc/
         getByName("debug") {
             buildConfigField("String", "GITHUB_CLIENT_ID", Secrets.GITHUB_CLIENT_ID)
             buildConfigField("String", "GITHUB_CLIENT_SECRET", Secrets.GITHUB_CLIENT_SECRET)

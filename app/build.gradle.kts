@@ -17,7 +17,13 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        getByName("debug") {
+            buildConfigField("String", "GITHUB_CLIENT_ID", Secrets.GITHUB_CLIENT_ID)
+            buildConfigField("String", "GITHUB_CLIENT_SECRET", Secrets.GITHUB_CLIENT_SECRET)
+        }
         getByName("release") {
+            buildConfigField("String", "GITHUB_CLIENT_ID", Secrets.GITHUB_CLIENT_ID)
+            buildConfigField("String", "GITHUB_CLIENT_SECRET", Secrets.GITHUB_CLIENT_SECRET)
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }

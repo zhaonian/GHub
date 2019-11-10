@@ -39,7 +39,7 @@ jobs:
 
       - run:
           name: Download Dependencies
-          command: cat ~/.gradle/gradle.properties && ./gradlew androidDependencies -Pci
+          command: ls ~/.gradle/ && ./gradlew androidDependencies -Pci
 
       - save_cache:
           name: Save Cache

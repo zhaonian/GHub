@@ -29,6 +29,7 @@ function copyEnvVarsToGradleProperties {
         echo "Gradle Properties does not exist"
 
         echo "Creating Gradle Properties file..."
+        mkdir ~/.gradle
         touch $GRADLE_PROPERTIES
 
         echo "Writing GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET to gradle.properties..."

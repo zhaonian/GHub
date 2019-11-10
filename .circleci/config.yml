@@ -39,7 +39,7 @@ jobs:
 
       - run:
           name: Download Dependencies
-          command: source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties && cat ~/.gradle/gradle.properties && ./gradlew androidDependencies -Pci
+          command: source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties && cat ~/.gradle/gradle.properties && pwd && ./gradlew androidDependencies -Pci
 
       - save_cache:
           name: Save Cache

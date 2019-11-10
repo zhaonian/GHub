@@ -21,13 +21,17 @@ jobs:
       JVM_OPTS: -Xmx3200m # limit the maximum heap size to prevent out of memory errors
       TERM: dumb # Use dumb terminal to avoid weird output from Gradle.
 
+    dependencies:
+      pre:
+        - source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties
+
     steps:
       - checkout
 
-      - env_var:
-          # for setting up the enviroment variables in CI.
-          name: Set up CI env vars
-          key: source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties
+      # - dependencies:
+      #     # for setting up the enviroment variables in CI.
+      #     name: Set up CI env vars
+      #     key: source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties
 
       - restore_cache:
           name: Restore Cache

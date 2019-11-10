@@ -18,7 +18,6 @@ android {
     }
     buildTypes {
         getByName("release") {
-//            buildConfigField("String", "GITHUB_CLIENT_ID", GITHUB_CLIENT_ID)
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }

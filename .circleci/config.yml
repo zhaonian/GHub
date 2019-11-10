@@ -32,10 +32,13 @@ jobs:
       #     # for setting up the enviroment variables in CI.
       #     name: Set up CI env vars
       #     key: source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties
+      - run:
+          name: Set up env var in CI
+          command: source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties
 
       - restore_cache:
           name: Restore Cache
-          key: source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties && jars-{{ checksum "build.gradle.kts" }}-{{ checksum  "app/build.gradle.kts" }}
+          key: jars-{{ checksum "build.gradle.kts" }}-{{ checksum  "app/build.gradle.kts" }}
 
       - run:
           name: Download Dependencies

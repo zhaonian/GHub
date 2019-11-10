@@ -9,31 +9,22 @@ jobs:
       # specify the version you desire here
       - image: circleci/android:api-29
 
-    working_directory: ~/GHub
-
     # Specify service dependencies here if necessary
     # CircleCI maintains a library of pre-built images
     # documented at https://circleci.com/docs/2.0/circleci-images/
     # - image: circleci/postgres:9.4
+    working_directory: ~/GHub
 
     environment:
       # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m # limit the maximum heap size to prevent out of memory errors
       TERM: dumb # Use dumb terminal to avoid weird output from Gradle.
 
-    # dependencies:
-    #   pre:
-    #     - source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties
-
     steps:
       - checkout
 
-      # - dependencies: source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties && cat ~/.gradle/gradle.properties && 
-      #     # for setting up the enviroment variables in CI.
-      #     name: Set up CI env vars
-      #     key: source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties
       - run:
-          name: Set up env var in CI
+          name: Set up Environment Variables in CI instance
           command: mkdir ~/.gradle && source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties
 
       - restore_cache:

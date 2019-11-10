@@ -18,6 +18,7 @@ android {
     }
     buildTypes {
         getByName("release") {
+//            buildConfigField("String", "GITHUB_CLIENT_ID", GITHUB_CLIENT_ID)
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
@@ -51,6 +52,9 @@ android {
             isReturnDefaultValues = true
             isIncludeAndroidResources = true
         }
+    }
+    allprojects {
+        apply(from = "$rootDir/app/buildOptions.gradle")
     }
 }
 

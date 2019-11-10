@@ -1,0 +1,14 @@
+android {
+    buildTypes {
+        debug {
+            buildConfigField 'String', "GITHUB_CLIENT_ID", "\"" + GITHUB_CLIENT_ID + "\""
+            buildConfigField 'String', "GITHUB_CLIENT_SECRET", "\"" + GITHUB_CLIENT_SECRET + "\""
+        }
+        release {
+            buildConfigField 'String', "GITHUB_CLIENT_ID", "\"" + GITHUB_CLIENT_ID + "\""
+            buildConfigField 'String', "GITHUB_CLIENT_SECRET", "\"" + GITHUB_CLIENT_SECRET + "\""
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}

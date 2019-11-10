@@ -53,7 +53,7 @@ android {
         }
     }
     allprojects {
-        apply(from = "$rootDir/app/buildOptions.gradle")
+        apply("$rootDir/app/build-options.gradle")
     }
 }
 

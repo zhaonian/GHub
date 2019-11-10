@@ -15,9 +15,6 @@ jobs:
     # CircleCI maintains a library of pre-built images
     # documented at https://circleci.com/docs/2.0/circleci-images/
     # - image: circleci/postgres:9.4
-    dependencies:
-      pre:
-        - source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties # for setting up the enviroment variables in CI.
 
     environment:
       # Customize the JVM maximum heap limit
@@ -26,6 +23,11 @@ jobs:
 
     steps:
       - checkout
+
+      - env_var:
+          # for setting up the enviroment variables in CI.
+          name: Set up CI env vars
+          key: source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties
 
       - restore_cache:
           name: Restore Cache

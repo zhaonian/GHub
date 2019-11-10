@@ -21,7 +21,7 @@ jobs:
 
       - run:
           name: Set up Environment Variables in CI instance
-          command: mkdir ~/.gradle && ./copy-env-var.sh
+          command: mkdir ~/.gradle && chmod +x ./copy-env-var.sh && ./copy-env-var.sh
 
       - restore_cache:
           name: Restore Cache

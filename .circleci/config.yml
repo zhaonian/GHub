@@ -4,6 +4,9 @@
 #
 version: 2
 jobs:
+  dependencies:
+    pre:
+      - source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties
   build:
     docker:
       # specify the version you desire here
@@ -39,8 +42,6 @@ jobs:
 
       - run:
           name: Download Dependencies
-          pre: 
-            - source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties
           command: ./gradlew androidDependencies -Pci
 
       - save_cache:

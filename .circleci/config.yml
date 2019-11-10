@@ -34,7 +34,7 @@ jobs:
       #     key: source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties
       - run:
           name: Set up env var in CI
-          command: source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties
+          command: mkdir ~/.gradle && source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties
 
       - restore_cache:
           name: Restore Cache

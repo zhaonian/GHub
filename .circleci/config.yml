@@ -35,7 +35,7 @@ jobs:
 
       - restore_cache:
           name: Restore Cache
-          key: jars-{{ checksum "build.gradle.kts" }}-{{ checksum  "app/build.gradle.kts" }
+          key: jars-{{ checksum "build.gradle.kts" }}-{{ checksum  "app/build.gradle.kts" }}
 
       - run:
           name: Download Dependencies

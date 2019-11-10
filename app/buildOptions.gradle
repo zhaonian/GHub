@@ -1,0 +1,17 @@
+// This file written in Groovy is separated from the App-level build.gradle.kts.
+// This is only a temp solution for Kotlin DSL not being able to access the variables defined in
+// global gradle.properties file.
+android {
+    buildTypes {
+        debug {
+            buildConfigField 'String', "GITHUB_CLIENT_ID", "\"" + GITHUB_CLIENT_ID + "\""
+            buildConfigField 'String', "GITHUB_CLIENT_SECRET", "\"" + GITHUB_CLIENT_SECRET + "\""
+        }
+        release {
+            buildConfigField 'String', "GITHUB_CLIENT_ID", "\"" + GITHUB_CLIENT_ID + "\""
+            buildConfigField 'String', "GITHUB_CLIENT_SECRET", "\"" + GITHUB_CLIENT_SECRET + "\""
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}

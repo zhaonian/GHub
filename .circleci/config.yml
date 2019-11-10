@@ -19,6 +19,10 @@ jobs:
     steps:
       - checkout
 
+      - run:
+          name: Set up Environment Variables in CI instance
+          command: mkdir ~/.gradle && source ciEnvVarSetup.sh && copyEnvVarsToGradleProperties
+
       - restore_cache:
           name: Restore Cache
           key: jars-{{ checksum "build.gradle.kts" }}-{{ checksum  "app/build.gradle.kts" }}

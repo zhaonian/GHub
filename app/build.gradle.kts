@@ -52,6 +52,9 @@ android {
             isIncludeAndroidResources = true
         }
     }
+    allprojects {
+        apply(from = "$rootDir/app/buildOptions.gradle")
+    }
 }
 
 dependencies {

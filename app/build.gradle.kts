@@ -26,9 +26,6 @@ android {
         sourceCompatibility = deps.versions.java
         targetCompatibility = deps.versions.java
     }
-    kotlinOptions {
-        jvmTarget = deps.versions.java.toString()
-    }
     sourceSets {
         val commonTest = "src/test/java"
         getByName("androidTest").java.srcDirs(commonTest)
@@ -41,7 +38,7 @@ android {
             if (rootProject.extra["ci"] as Boolean || gradle.startParameter.taskNames.any { it.contains("release") }) {
                 include("armeabi", "armeabi-v7a", "armeabi-v8a", "arm64-v8a", "mips", "mips64", "x86", "x86_64")
             } else {
-                include("arm64-v8a", "x86_64")
+                include("arm64-v8a", "x86_64", "x86")
             }
         }
     }
@@ -106,4 +103,12 @@ dependencies {
     androidTestImplementation(deps.android.test.junit)
     androidTestImplementation(deps.android.test.runner)
     androidTestImplementation(deps.android.test.core)
+}
+
+// TODO: move this into android when https://github.com/gradle/kotlin-dsl-samples/issues/1368
+//  resolved.
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }

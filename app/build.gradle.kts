@@ -26,6 +26,9 @@ android {
         sourceCompatibility = deps.versions.java
         targetCompatibility = deps.versions.java
     }
+//    kotlinOptions {
+//        jvmTarget = deps.versions.java.toString()
+//    }
     sourceSets {
         val commonTest = "src/test/java"
         getByName("androidTest").java.srcDirs(commonTest)

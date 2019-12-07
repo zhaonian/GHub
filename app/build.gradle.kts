@@ -89,6 +89,9 @@ dependencies {
     implementation(deps.network.retrofit)
     implementation(deps.network.retrofitMoshiConverter)
 
+    // Apollo
+    implementation(deps.network.apollo)
+
     // Timber
     implementation(deps.log.timber)
 

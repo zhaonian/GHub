@@ -1,5 +1,6 @@
 package io.zluan.ghub.di
 
+import com.apollographql.apollo.ApolloClient
 import dagger.Module
 import dagger.Provides
 import io.zluan.ghub.network.Constants
@@ -16,5 +17,13 @@ class AppModule {
         return Retrofit.Builder()
             .baseUrl(Constants.GITHUB_BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
+    }
+
+    @Provides
+    @Singleton
+    fun provideApolloClient(): ApolloClient {
+        return ApolloClient.builder()
+            .serverUrl(Constants.GITHUB_GRAPHQL_BASE_URL)
+            .build()
     }
 }

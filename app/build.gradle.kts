@@ -4,6 +4,7 @@ plugins {
     kotlin("android.extensions")
     kotlin("kapt")
     id("androidx.navigation.safeargs")
+    id("com.apollographql.android")
 }
 
 android {
@@ -54,6 +55,9 @@ android {
     }
     allprojects {
         apply("$rootDir/app/build-options.gradle")
+    }
+    apollo {
+        generateKotlinModels.set(true)
     }
 }
 

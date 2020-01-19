@@ -4,7 +4,7 @@ import org.gradle.api.JavaVersion
 
 object deps {
     object versions {
-        const val androidGradle = "4.0.0-alpha04"
+        const val androidGradle = "4.0.0-alpha06"
         const val kotlin = "1.3.50"
         val java = JavaVersion.VERSION_1_8
     }
@@ -74,6 +74,14 @@ object deps {
 
         private const val apolloVersion = "1.2.2"
         const val apollo = "com.apollographql.apollo:apollo-runtime:$apolloVersion"
+    }
+
+    object database {
+        private const val roomVersion = "2.2.1"
+        const val roomRuntime = "androidx.room:room-runtime:$roomVersion"
+        const val roomKtx = "androidx.room:room-ktx:$roomVersion"
+        const val roomCompile = "androidx.room:room-compiler:$roomVersion"
+        const val roomTest = "androidx.room:room-testing:$roomVersion"
     }
 
     object codeAnalysis {

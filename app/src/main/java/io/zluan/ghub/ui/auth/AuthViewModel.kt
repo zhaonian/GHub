@@ -2,6 +2,7 @@ package io.zluan.ghub.ui.auth
 
 import androidx.lifecycle.ViewModel
 import io.zluan.ghub.di.coroutines.IODispatcher
+import io.zluan.ghub.repository.auth.AuthRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -13,6 +14,7 @@ import kotlin.coroutines.CoroutineContext
 
 /** A ViewModel for all authentication-related work. */
 class AuthViewModel @Inject constructor(
+    val authRepository: AuthRepository,
     @IODispatcher private val ioDispatcher: CoroutineDispatcher
 ) : ViewModel(), CoroutineScope {
     private val authenticationJob = Job()

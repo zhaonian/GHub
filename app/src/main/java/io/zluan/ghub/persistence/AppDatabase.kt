@@ -5,6 +5,7 @@ import androidx.room.RoomDatabase
 import io.zluan.ghub.model.Account
 import io.zluan.ghub.model.AuthToken
 
+/** The one and only database instance of the whole app. */
 @Database(entities = [AuthToken::class, Account::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 

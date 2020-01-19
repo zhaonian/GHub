@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import io.zluan.ghub.model.AuthToken
 
+/** DB object for storing [AuthToken]. */
 @Dao
 interface AuthTokenDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)

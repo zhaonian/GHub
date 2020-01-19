@@ -10,6 +10,7 @@ import io.zluan.ghub.di.coroutines.CoroutinesModule
 import io.zluan.ghub.session.SessionManager
 import javax.inject.Singleton
 
+/** Dependencies added here will be able to be injected into anywhere. */
 @Singleton
 @Component(
     modules = [
@@ -21,7 +22,6 @@ import javax.inject.Singleton
     ]
 )
 interface AppComponent : AndroidInjector<BaseApplication> {
-    // deps added here will be able to be injected into anywhere.
 
     val sessionManager: SessionManager // add it here in order to inject it into abstract class.
 

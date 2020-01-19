@@ -6,6 +6,7 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 
+/** User's auth token from Github. One [Account] maps to many [AuthToken]. */
 @Entity(
     tableName = "auth_token",
     foreignKeys = [

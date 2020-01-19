@@ -16,6 +16,11 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
     }
     buildTypes {
         getByName("release") {
@@ -92,6 +97,12 @@ dependencies {
     // Retrofit
     implementation(deps.network.retrofit)
     implementation(deps.network.retrofitMoshiConverter)
+
+    // Room
+    implementation(deps.database.roomRuntime)
+    implementation(deps.database.roomKtx)
+    kapt(deps.database.roomCompile)
+    androidTestImplementation(deps.database.roomTest)
 
     // Apollo
     implementation(deps.network.apollo)

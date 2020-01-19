@@ -76,6 +76,14 @@ object deps {
         const val apollo = "com.apollographql.apollo:apollo-runtime:$apolloVersion"
     }
 
+    object database {
+        private const val roomVersion = "2.2.1"
+        const val roomRuntime = "androidx.room:room-runtime:$roomVersion"
+        const val roomKtx = "androidx.room:room-ktx:$roomVersion"
+        const val roomCompile = "androidx.room:room-compiler:$roomVersion"
+        const val roomTest = "androidx.room:room-testing:$roomVersion"
+    }
+
     object codeAnalysis {
         private const val leakCanaryVersion = "2.0-beta-3"
         const val leakCanary = "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"

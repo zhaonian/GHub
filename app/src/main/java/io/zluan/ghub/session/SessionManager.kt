@@ -10,6 +10,4 @@ import javax.inject.Singleton
 class SessionManager @Inject constructor(
     val authToken: AuthTokenDao,
     val application: Application
-) {
-
-}
+)

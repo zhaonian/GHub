@@ -55,6 +55,10 @@ object deps {
         object preference {
             const val preference = "androidx.preference:preference-ktx:1.1.0"
         }
+
+        object web {
+            const val webkit = "androidx.webkit:webkit:1.1.0"
+        }
     }
 
     object di {

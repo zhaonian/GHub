@@ -1,11 +1,9 @@
 package io.zluan.ghub.ui.auth
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import androidx.webkit.WebViewClientCompat
 import dagger.android.support.DaggerAppCompatActivity
 import io.zluan.ghub.BuildConfig
 import io.zluan.ghub.R

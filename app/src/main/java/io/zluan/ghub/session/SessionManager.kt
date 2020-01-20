@@ -27,6 +27,7 @@ class SessionManager @Inject constructor(
 ) : CoroutineScope {
     private val _cachedToken = MutableLiveData<AuthToken>()
 
+    /** [AuthToken] of the current logged-in user. */
     val cachedToken: LiveData<AuthToken>
         get() = _cachedToken
 
@@ -48,7 +49,7 @@ class SessionManager @Inject constructor(
         Timber.d("Logging out...")
         launch(ioDispatcher) {
             var errorMessage: String? = null
-            try{
+            try {
                 _cachedToken.value?.account_pk?.let { authTokenDao.nullifyToken(it) }
                     ?: throw CancellationException("Token Error. Logging out user.")
             } catch (e: CancellationException) {
@@ -58,7 +59,7 @@ class SessionManager @Inject constructor(
                 Timber.e("logout: ${e.message}")
                 errorMessage = errorMessage + "\n" + e.message
             } finally {
-                errorMessage?.let{ Timber.e("logout: $errorMessage" ) }
+                errorMessage?.let { Timber.e("logout: $errorMessage" ) }
                 setAuthToken(null)
             }
         }

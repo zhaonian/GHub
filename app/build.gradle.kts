@@ -87,6 +87,9 @@ dependencies {
     implementation(deps.android.ui.constraintlayout)
     implementation(deps.android.ui.material)
 
+    // Webkit
+    implementation(deps.android.web.webkit)
+
     // Dagger
     implementation(deps.di.dagger)
     kapt(deps.di.daggerCompiler)

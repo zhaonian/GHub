@@ -59,7 +59,7 @@ class SessionManager @Inject constructor(
                 Timber.e("logout: ${e.message}")
                 errorMessage = errorMessage + "\n" + e.message
             } finally {
-                errorMessage?.let { Timber.e("logout: $errorMessage" ) }
+                errorMessage?.let { Timber.e("logout: $errorMessage") }
                 setAuthToken(null)
             }
         }

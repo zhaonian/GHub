@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ea5b0955e81560b38cecc34a8a474e53",
+    "identityHash": "5d299584458cb79f627617f91c207f1b",
     "entities": [
       {
         "tableName": "auth_token",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`account_pk` INTEGER PRIMARY KEY AUTOINCREMENT, `token` TEXT, FOREIGN KEY(`account_pk`) REFERENCES `account`(`account_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`account_pk` INTEGER PRIMARY KEY AUTOINCREMENT, `access_token` TEXT, `token_type` TEXT, FOREIGN KEY(`account_pk`) REFERENCES `account`(`account_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "account_pk",
@@ -16,7 +16,13 @@
           },
           {
             "fieldPath": "token",
-            "columnName": "token",
+            "columnName": "access_token",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tokenType",
+            "columnName": "token_type",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -78,7 +84,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ea5b0955e81560b38cecc34a8a474e53')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5d299584458cb79f627617f91c207f1b')"
     ]
   }
 }

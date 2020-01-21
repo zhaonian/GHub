@@ -22,14 +22,12 @@ class AuthModule {
     fun provideAuthRepository(
         authTokenDao: AuthTokenDao,
         accountDao: AccountDao,
-        authService: AuthService,
-        sessionManager: SessionManager
+        authService: AuthService
     ): AuthRepository {
         return AuthRepository(
             authTokenDao,
             accountDao,
-            authService,
-            sessionManager
+            authService
         )
     }
 }

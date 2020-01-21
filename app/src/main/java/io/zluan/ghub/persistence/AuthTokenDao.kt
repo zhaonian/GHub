@@ -12,6 +12,6 @@ interface AuthTokenDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(authToken: AuthToken): Long
 
-    @Query(value = "UPDATE auth_token SET token = null WHERE account_pk = :pk")
+    @Query(value = "UPDATE auth_token SET access_token = null WHERE account_pk = :pk")
     fun nullifyToken(pk: Int): Int
 }

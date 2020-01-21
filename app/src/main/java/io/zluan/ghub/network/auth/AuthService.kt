@@ -9,7 +9,7 @@ import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface AuthService {
-    @Headers(value= ["Accept: application/json"])
+    @Headers(value = ["Accept: application/json"])
     @POST(value = "login/oauth/access_token")
     @FormUrlEncoded
     fun getAccessToken(

@@ -5,7 +5,6 @@ import io.zluan.ghub.model.AuthToken
 import io.zluan.ghub.network.auth.AuthService
 import io.zluan.ghub.persistence.AccountDao
 import io.zluan.ghub.persistence.AuthTokenDao
-import io.zluan.ghub.session.SessionManager
 import io.zluan.ghub.util.ApiResponse
 import javax.inject.Inject
 

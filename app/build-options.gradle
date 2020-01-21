@@ -4,6 +4,13 @@
 android {
     buildTypes {
         debug {
+            if (!(project.hasProperty("GITHUB_CLIENT_ID") && project.hasProperty("GITHUB_CLIENT_SECRET"))) {
+                throw new GradleException(
+                        'GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET are required. Please register ' +
+                                'a project on Github: https://github.com/settings/developers, ' +
+                                'then define these two entries in your global.properties'
+                )
+            }
             buildConfigField 'String', "GITHUB_CLIENT_ID", "\"" + GITHUB_CLIENT_ID + "\""
             buildConfigField 'String', "GITHUB_CLIENT_SECRET", "\"" + GITHUB_CLIENT_SECRET + "\""
         }

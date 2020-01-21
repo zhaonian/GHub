@@ -24,7 +24,11 @@ data class AuthToken(
     @ColumnInfo(name = "account_pk")
     var account_pk: Int? = -1,
 
-    @field:Json(name = "token")
-    @ColumnInfo(name = "token")
-    var token: String? = null
+    @field:Json(name = "access_token")
+    @ColumnInfo(name = "access_token")
+    var token: String? = null,
+
+    @field:Json(name = "token_type")
+    @ColumnInfo(name = "token_type")
+    var tokenType: String? = null
 )

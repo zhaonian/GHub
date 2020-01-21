@@ -8,11 +8,17 @@ import javax.inject.Inject
 
 /** Repository for all auth-related  stuff. */
 class AuthRepository @Inject constructor(
-    val authTokenDao: AuthTokenDao,
-    val accountDao: AccountDao,
-    val authService: AuthService,
-    val sessionManager: SessionManager
+    private val authTokenDao: AuthTokenDao,
+    private val accountDao: AccountDao,
+    private val authService: AuthService,
+    private val sessionManager: SessionManager
 ) {
-    fun loginRequest(email: String, password: String) {
+    /** Fetches the access_token from Github. */
+    fun fetchAccessToken(clientId: String, clientSecret: String, code: String) {
+        authService.getAccessToken(
+            clientId = clientId,
+            clientSecret = clientSecret,
+            code = code
+        )
     }
 }

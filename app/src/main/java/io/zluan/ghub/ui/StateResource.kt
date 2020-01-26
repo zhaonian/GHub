@@ -6,15 +6,11 @@ data class StateError(val response: Response)
 
 data class Response(val message: String?, val responseType: ResponseType)
 
-sealed class ResponseType{
-
-    class Toast: ResponseType()
-
-    class Dialog: ResponseType()
-
-    class None: ResponseType()
+sealed class ResponseType {
+    class Toast : ResponseType()
+    class Dialog : ResponseType()
+    class None : ResponseType()
 }
-
 
 /** Used as a wrapper for data that is exposed via a LiveData that represents an event. */
 open class Event<out T>(private val content: T) {
@@ -39,9 +35,9 @@ open class Event<out T>(private val content: T) {
         return "Event(content=$content, hasBeenHandled=$hasBeenHandled)"
     }
 
-    companion object{
+    companion object {
         // we don't want an event if the data is null
-        fun <T> dataEvent(data: T?): Event<T>?{
+        fun <T> dataEvent(data: T?): Event<T>? {
             data?.let {
                 return Event(it)
             }
@@ -49,8 +45,8 @@ open class Event<out T>(private val content: T) {
         }
 
         // we don't want an event if the response is null
-        fun responseEvent(response: Response?): Event<Response>?{
-            response?.let{
+        fun responseEvent(response: Response?): Event<Response>? {
+            response?.let {
                 return Event(response)
             }
             return null

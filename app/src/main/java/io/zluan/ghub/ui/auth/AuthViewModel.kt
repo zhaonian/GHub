@@ -2,10 +2,14 @@ package io.zluan.ghub.ui.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import io.zluan.ghub.di.coroutines.IODispatcher
 import io.zluan.ghub.model.AuthToken
 import io.zluan.ghub.repository.auth.AuthRepository
+import io.zluan.ghub.ui.BaseViewModel
+import io.zluan.ghub.ui.DataState
+import io.zluan.ghub.ui.auth.state.AuthStateEvent
+import io.zluan.ghub.ui.auth.state.AuthViewState
+import io.zluan.ghub.util.AbsentLiveData
 import io.zluan.ghub.util.ApiResponse
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
@@ -16,9 +20,9 @@ import kotlin.coroutines.CoroutineContext
 
 /** A ViewModel for all authentication-related work. */
 class AuthViewModel @Inject constructor(
-    val authRepository: AuthRepository,
+    private val authRepository: AuthRepository,
     @IODispatcher private val ioDispatcher: CoroutineDispatcher
-) : ViewModel(), CoroutineScope {
+) : BaseViewModel<AuthStateEvent, AuthViewState>(), CoroutineScope {
     private val authenticationJob = Job()
     override val coroutineContext: CoroutineContext
         get() = authenticationJob + ioDispatcher
@@ -40,6 +44,30 @@ class AuthViewModel @Inject constructor(
                 clientSecret = clientSecret,
                 code = code
             )
+        }
+    }
+
+    fun setAuthToken(authToken: AuthToken) {
+        val update = getCurrentViewStateOrNew()
+        if (update.authToken == authToken) {
+            return
+        }
+        update.authToken = authToken
+        _viewState.value = update
+    }
+
+    override fun initNewViewState(): AuthViewState {
+        return AuthViewState()
+    }
+
+    override fun handleStateEvent(stateEvent: AuthStateEvent): LiveData<DataState<AuthViewState>> {
+        return when (stateEvent) {
+            is AuthStateEvent.GetAuthTokenEvent -> {
+                AbsentLiveData.create()
+            }
+            is AuthStateEvent.CheckLoggedInEvent -> {
+                AbsentLiveData.create()
+            }
         }
     }
 }

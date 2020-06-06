@@ -66,6 +66,12 @@ class AuthActivity : DaggerAppCompatActivity() {
         }
     }
 
+    private fun subscribeObservers() {
+        viewModel.viewState.observe(this, Observer {
+
+        })
+    }
+
     companion object {
         private const val OAUTH_URL = "https://github.com/login/oauth/authorize"
         private const val PARAM_CLIENT_ID = "client_id"
